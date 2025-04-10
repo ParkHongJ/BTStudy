@@ -177,6 +177,7 @@
     <ClInclude Include="Imgui\imgui.h" />
     <ClInclude Include="Imgui\imgui_bezier_math.h" />
     <ClInclude Include="Imgui\imgui_canvas.h" />
+    <ClInclude Include="Imgui\imgui_extra_keys.h" />
     <ClInclude Include="Imgui\imgui_extra_math.h" />
     <ClInclude Include="Imgui\imgui_impl_dx11.h" />
     <ClInclude Include="Imgui\imgui_impl_win32.h" />
@@ -186,8 +187,10 @@
     <ClInclude Include="Imgui\imstb_rectpack.h" />
     <ClInclude Include="Imgui\imstb_textedit.h" />
     <ClInclude Include="Imgui\imstb_truetype.h" />
+    <ClInclude Include="Imgui\stb_image.h" />
     <ClInclude Include="json.hpp" />
     <ClInclude Include="MoveToEnemyNode.h" />
+    <ClInclude Include="Node.h" />
     <ClInclude Include="Selector.h" />
     <ClInclude Include="Composite.h" />
     <ClInclude Include="Sequence.h" />
