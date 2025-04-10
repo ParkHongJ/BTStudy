@@ -1,0 +1,8 @@
+{
+  "type": "Sequence",
+  "children": [
+    { "type": "Action", "name": "MoveToEnemyNode" },
+    { "type": "Action", "name": "FindEnemyNode" },
+    { "type": "Action", "name": "Wait" }
+  ]
+}
