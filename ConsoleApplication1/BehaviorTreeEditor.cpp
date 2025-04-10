@@ -164,7 +164,7 @@ void BehaviorTreeEditor::Render()
     RenderBegin();
 	
     ed::Begin("Behavior Tree Editor");
-
+    ImGui::Text("select object: %d", ed::GetSelectedObjectCount());
     for (auto& node : m_Nodes)
     {
         if (node.Type != NodeType::Tree)
@@ -415,34 +415,42 @@ void BehaviorTreeEditor::Render()
 
         ed::EndCreate();
 
-        if (ed::BeginDelete())
+		int deleteKeyIndex = ImGui::GetKeyIndex(ImGuiKey_Delete);
+		if (ImGui::IsKeyPressed(deleteKeyIndex)) {
+            if (ed::BeginDelete())
+            {
+                ed::NodeId nodeId = 0;
+                while (ed::QueryDeletedNode(&nodeId))
+                {
+                    if (ed::AcceptDeletedItem())
+                    {
+                        auto id = std::find_if(m_Nodes.begin(), m_Nodes.end(), [nodeId](auto& node) { return node.ID == nodeId; });
+                        if (id != m_Nodes.end())
+                            m_Nodes.erase(id);
+                    }
+                }
+
+                ed::LinkId linkId = 0;
+                while (ed::QueryDeletedLink(&linkId))
+                {
+                    if (ed::AcceptDeletedItem())
+                    {
+                        auto id = std::find_if(m_Links.begin(), m_Links.end(), [linkId](auto& link) { return link.ID == linkId; });
+                        if (id != m_Links.end())
+                            m_Links.erase(id);
+                    }
+                }
+                ed::EndDelete();
+            }
+		}
+
+        if (ImGui::IsKeyPressed(ImGui::GetKeyIndex(ImGuiKey_Delete)))
         {
-            ed::NodeId nodeId = 0;
-            while (ed::QueryDeletedNode(&nodeId))
-            {
-                if (ed::AcceptDeletedItem())
-                {
-                    auto id = std::find_if(m_Nodes.begin(), m_Nodes.end(), [nodeId](auto& node) { return node.ID == nodeId; });
-                    if (id != m_Nodes.end())
-                        m_Nodes.erase(id);
-                }
-            }
-
-            ed::LinkId linkId = 0;
-            while (ed::QueryDeletedLink(&linkId))
-            {
-                if (ed::AcceptDeletedItem())
-                {
-                    auto id = std::find_if(m_Links.begin(), m_Links.end(), [linkId](auto& link) { return link.ID == linkId; });
-                    if (id != m_Links.end())
-                        m_Links.erase(id);
-                }
-            }
+            
         }
-        ed::EndDelete();
-    }
+		
+	}
 
-	//ed::BeginNode(1); ImGui::Text("Sequence"); ed::EndNode();
     auto openPopupPosition = ImGui::GetMousePos();
     ed::Suspend();
     if (ed::ShowBackgroundContextMenu())
@@ -475,7 +483,7 @@ void BehaviorTreeEditor::Render()
 
             ed::SetNodePosition(node->ID, newNodePostion);
 
-            /*if (auto startPin = newNodeLinkPin)
+            if (auto startPin = newNodeLinkPin)
             {
                 auto& pins = startPin->Kind == PinKind::Input ? node->Outputs : node->Inputs;
 
@@ -493,7 +501,7 @@ void BehaviorTreeEditor::Render()
                         break;
                     }
                 }
-            }*/
+            }
         }
 
         ImGui::EndPopup();
