@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="소스 파일\Blackboards">
-      <UniqueIdentifier>{6bc476bd-463e-4296-8514-5e0c859546f4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\BehaviorTree">
       <UniqueIdentifier>{002c5e47-df98-4a6d-a3b0-474734accea5}</UniqueIdentifier>
     </Filter>
