@@ -43,6 +43,9 @@
     <Filter Include="소스 파일\ToolBTNode">
       <UniqueIdentifier>{02d940c5-9486-48c7-ab03-78c5daa6ff7a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Builders">
+      <UniqueIdentifier>{873f1be1-7561-43bd-ace1-32f994188098}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -110,6 +113,15 @@
     </ClCompile>
     <ClCompile Include="BehaviorTreeEditor.cpp">
       <Filter>소스 파일\BehaviorTreeEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="utilities\builders.cpp">
+      <Filter>소스 파일\Builders</Filter>
+    </ClCompile>
+    <ClCompile Include="utilities\drawing.cpp">
+      <Filter>소스 파일\Builders</Filter>
+    </ClCompile>
+    <ClCompile Include="utilities\widgets.cpp">
+      <Filter>소스 파일\Builders</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -202,6 +214,15 @@
     </ClInclude>
     <ClInclude Include="Imgui\stb_image.h">
       <Filter>소스 파일\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="utilities\builders.h">
+      <Filter>소스 파일\Builders</Filter>
+    </ClInclude>
+    <ClInclude Include="utilities\drawing.h">
+      <Filter>소스 파일\Builders</Filter>
+    </ClInclude>
+    <ClInclude Include="utilities\widgets.h">
+      <Filter>소스 파일\Builders</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

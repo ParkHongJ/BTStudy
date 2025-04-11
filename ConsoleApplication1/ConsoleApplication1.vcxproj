@@ -162,6 +162,9 @@
     <ClCompile Include="Composite.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Sequence.cpp" />
+    <ClCompile Include="utilities\builders.cpp" />
+    <ClCompile Include="utilities\drawing.cpp" />
+    <ClCompile Include="utilities\widgets.cpp" />
     <ClCompile Include="Wait.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -194,6 +197,9 @@
     <ClInclude Include="Selector.h" />
     <ClInclude Include="Composite.h" />
     <ClInclude Include="Sequence.h" />
+    <ClInclude Include="utilities\builders.h" />
+    <ClInclude Include="utilities\drawing.h" />
+    <ClInclude Include="utilities\widgets.h" />
     <ClInclude Include="Wait.h" />
   </ItemGroup>
   <ItemGroup>

@@ -5,10 +5,12 @@
 #include <vector>
 #include <imgui_node_editor.h>
 #include <imgui_internal.h>
+#include "utilities/builders.h"
 
 #include "Node.h"
 
 namespace ed = ax::NodeEditor;
+namespace util = ax::NodeEditor::Utilities;
 
 struct Node;
 
@@ -53,6 +55,7 @@ public:
     IDXGISwapChain* swapChain = nullptr;
     ID3D11RenderTargetView* renderTargetView = nullptr;
     ed::EditorContext* g_editorContext = nullptr;
+    ImGuiContext* m_ImguiContext = nullptr;
 
 
     int GetNextId()

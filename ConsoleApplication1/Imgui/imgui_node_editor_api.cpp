@@ -348,7 +348,7 @@ void ax::NodeEditor::EndCreate()
 bool ax::NodeEditor::BeginDelete()
 {
     auto& context = s_Editor->GetItemDeleter();
-
+    
     return context.Begin();
 }
 
