@@ -1,23 +1,12 @@
 #pragma once
-#define IMGUI_DEFINE_MATH_OPERATORS
-#include <windows.h>
 #include <d3d11.h>
 #include <vector>
-#include <imgui_node_editor.h>
-#include <imgui_internal.h>
-#include "utilities/builders.h"
-
 #include "Node.h"
 
-namespace ed = ax::NodeEditor;
-namespace util = ax::NodeEditor::Utilities;
+extern Pin* newNodeLinkPin;
+extern Pin* newLinkPin;
 
-struct Node;
-
-static inline ImRect ImGui_GetItemRect()
-{
-    return ImRect(ImGui::GetItemRectMin(), ImGui::GetItemRectMax());
-}
+//namespace ed = ax::NodeEditor;
 
 static inline ImRect ImRect_Expanded(const ImRect& rect, float x, float y)
 {
@@ -66,7 +55,7 @@ public:
     Node* SpawnTreeSequenceNode()
     {
         m_Nodes.emplace_back(GetNextId(), "Sequence");
-        m_Nodes.back().Type = NodeType::Tree;
+        m_Nodes.back().Type = NodeType::Composite;
         m_Nodes.back().Inputs.emplace_back(GetNextId(), "", PinType::Flow);
         m_Nodes.back().Outputs.emplace_back(GetNextId(), "", PinType::Flow);
 
@@ -78,7 +67,7 @@ public:
     Node* SpawnTreeTaskNode()
     {
         m_Nodes.emplace_back(GetNextId(), "Move To");
-        m_Nodes.back().Type = NodeType::Tree;
+        m_Nodes.back().Type = NodeType::Action;
         m_Nodes.back().Inputs.emplace_back(GetNextId(), "", PinType::Flow);
 
         BuildNode(&m_Nodes.back());
@@ -89,7 +78,7 @@ public:
     Node* SpawnTreeTask2Node()
     {
         m_Nodes.emplace_back(GetNextId(), "Random Wait");
-        m_Nodes.back().Type = NodeType::Tree;
+        m_Nodes.back().Type = NodeType::Action;
         m_Nodes.back().Inputs.emplace_back(GetNextId(), "", PinType::Flow);
 
         BuildNode(&m_Nodes.back());
@@ -159,12 +148,4 @@ public:
     std::vector<Link>    m_Links;
     int m_NextId = 1;
 
-    bool CanCreateLink(Pin* a, Pin* b)
-    {
-        if (!a || !b || a == b || a->Kind == b->Kind || a->Type != b->Type || a->Node == b->Node)
-            return false;
-
-        return true;
-    }
 };
-

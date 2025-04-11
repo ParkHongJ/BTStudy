@@ -46,6 +46,9 @@
     <Filter Include="소스 파일\Builders">
       <UniqueIdentifier>{873f1be1-7561-43bd-ace1-32f994188098}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\BehaviorTree\Decorator">
+      <UniqueIdentifier>{5bc6f019-aace-4420-b8cd-a1d96dcf0f99}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -122,6 +125,12 @@
     </ClCompile>
     <ClCompile Include="utilities\widgets.cpp">
       <Filter>소스 파일\Builders</Filter>
+    </ClCompile>
+    <ClCompile Include="Decorator.cpp">
+      <Filter>소스 파일\BehaviorTree\Decorator</Filter>
+    </ClCompile>
+    <ClCompile Include="Node.cpp">
+      <Filter>소스 파일\ToolBTNode</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -223,6 +232,9 @@
     </ClInclude>
     <ClInclude Include="utilities\widgets.h">
       <Filter>소스 파일\Builders</Filter>
+    </ClInclude>
+    <ClInclude Include="Decorator.h">
+      <Filter>소스 파일\BehaviorTree\Decorator</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

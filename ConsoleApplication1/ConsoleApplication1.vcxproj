@@ -146,6 +146,7 @@
     <ClCompile Include="BehaviorTreeEditor.cpp" />
     <ClCompile Include="Blackboard.cpp" />
     <ClCompile Include="BTNode.cpp" />
+    <ClCompile Include="Decorator.cpp" />
     <ClCompile Include="FindEnemyNode.cpp" />
     <ClCompile Include="Imgui\crude_json.cpp" />
     <ClCompile Include="Imgui\imgui.cpp" />
@@ -158,6 +159,7 @@
     <ClCompile Include="Imgui\imgui_tables.cpp" />
     <ClCompile Include="Imgui\imgui_widgets.cpp" />
     <ClCompile Include="MoveToEnemyNode.cpp" />
+    <ClCompile Include="Node.cpp" />
     <ClCompile Include="Selector.cpp" />
     <ClCompile Include="Composite.cpp" />
     <ClCompile Include="main.cpp" />
@@ -174,6 +176,7 @@
     <ClInclude Include="BehaviorTreeEditor.h" />
     <ClInclude Include="Blackboard.h" />
     <ClInclude Include="BTNode.h" />
+    <ClInclude Include="Decorator.h" />
     <ClInclude Include="FindEnemyNode.h" />
     <ClInclude Include="Imgui\crude_json.h" />
     <ClInclude Include="Imgui\imconfig.h" />
