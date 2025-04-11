@@ -55,6 +55,8 @@ int BehaviorTreeEditor::Run(HINSTANCE hInstance, int nCmdShow)
 
     g_editorContext = ed::CreateEditor(&config);
 
+    SpawnRootNode();
+
     MainLoop();
 
     ed::DestroyEditor(g_editorContext);

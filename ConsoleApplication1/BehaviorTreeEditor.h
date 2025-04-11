@@ -75,6 +75,17 @@ public:
         return &m_Nodes.back();
     }
 
+    Node* SpawnRootNode()
+    {
+        m_Nodes.emplace_back(GetNextId(), "Root");
+        m_Nodes.back().Type = NodeType::Root;
+        m_Nodes.back().Outputs.emplace_back(GetNextId(), "", PinType::Flow);
+
+        BuildNode(&m_Nodes.back());
+
+        return &m_Nodes.back();
+    }
+
     Node* SpawnTreeTask2Node()
     {
         m_Nodes.emplace_back(GetNextId(), "Random Wait");

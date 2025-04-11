@@ -148,9 +148,16 @@ void Node::Render()
     const auto topRoundCornersFlags = ImDrawFlags_RoundCornersTop;
     const auto bottomRoundCornersFlags = ImDrawFlags_RoundCornersBottom;
 
-    if (ImGui::IsKeyPressed(VK_SPACE))
+    if (ImGui::IsKeyPressed(VK_ADD) && ed::IsNodeSelected(ID))
     {
-        //decoratorCount++;
+        if (Type == NodeType::Composite)
+        {
+            //TODO Deco추가
+            DecoratorInfo decoInfo;
+            decoInfo.Type = "DecoInfo";
+            Decorators.push_back(decoInfo);
+        }
+        ImGui::OpenPopup("Create New Node");
     }
 
 #pragma region 데코레이터 박스 개별적으로 그리기
@@ -160,7 +167,7 @@ void Node::Render()
         ImVec2 dBR = dTL + ImVec2(contentRect.GetWidth(), decoratorHeight);
 
         drawList->AddRectFilled(dTL, dBR, IM_COL32(200, 140, 50, 180), 4.0f);
-        drawList->AddText(dTL + ImVec2(6, 4), IM_COL32_WHITE, "[Repeat]");
+        drawList->AddText(dTL + ImVec2(6, 4), IM_COL32_WHITE, Decorators[i].Type.c_str());
     }
 #pragma endregion 데코레이터 박스 개별적으로 그리기
 
